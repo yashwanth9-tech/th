@@ -1,0 +1,11 @@
+node_modules/
+**/node_modules/
+**/dist/
+*.tsbuildinfo
+frontend/vite.config.js
+frontend/vite.config.d.ts
+coverage/
+.env
+.env.*
+!.env.example
+backend/data/store.json

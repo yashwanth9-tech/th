@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: disaster-intelligence-demo
+    runtime: node
+    plan: starter
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: STORE_PATH
+        value: /var/data/store.json
+      - key: CORS_ORIGIN
+        value: https://disaster-intelligence-demo.onrender.com
+    disk:
+      name: disaster-platform-data
+      mountPath: /var/data
+      sizeGB: 1
